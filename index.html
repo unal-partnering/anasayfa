@@ -18,11 +18,9 @@
             transform: translate(-50%, -50%);
             width: 80vw;
             max-width: 600px;
-            /* Görünürlük artırıldı (0.08 -> 0.15) */
             opacity: 0.15; 
             z-index: -1;
             pointer-events: none;
-            /* Kenarları daha yumuşak silmek için maske ayarı güncellendi (40% -> 30%) */
             mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
             -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
         }
@@ -154,6 +152,8 @@
         <p class="text-gray-500 mb-10">Sorununuzu anlatın, size dönüş yapalım.</p>
 
         <form action="https://formspree.io/f/mbdkrzkn" method="POST" class="space-y-4 text-left">
+            <input type="hidden" name="_subject" value="UNAL Partnering - Yeni Müşteri Talebi!">
+
             <div class="grid md:grid-cols-2 gap-4">
                 <input type="text" name="name" placeholder="Adınız Soyadınız" class="w-full bg-transparent border border-gray-700 p-4 rounded text-white focus:border-[#d4af37] outline-none transition" required>
                 <input type="email" name="email" placeholder="E-posta Adresiniz" class="w-full bg-transparent border border-gray-700 p-4 rounded text-white focus:border-[#d4af37] outline-none transition" required>
