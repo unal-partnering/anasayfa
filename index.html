@@ -10,7 +10,7 @@
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
         
-        /* LOGO AYARLARI & YUMUŞAK GEÇİŞ */
+        /* LOGO AYARLARI & YUMUŞAK GEÇİŞ (GÜNCELLENDİ) */
         .watermark {
             position: fixed;
             top: 50%;
@@ -18,12 +18,13 @@
             transform: translate(-50%, -50%);
             width: 80vw;
             max-width: 600px;
-            opacity: 0.08; 
+            /* Görünürlük artırıldı (0.08 -> 0.15) */
+            opacity: 0.15; 
             z-index: -1;
             pointer-events: none;
-            /* Kenarları yumuşatmak için maskeleme */
-            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            /* Kenarları daha yumuşak silmek için maske ayarı güncellendi (40% -> 30%) */
+            mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
         }
 
         .gold-text { color: #d4af37; }
@@ -84,7 +85,7 @@
 
             <div class="grid md:grid-cols-2 gap-10 border-t border-white/10 pt-10">
                 <div>
-                    <h3 class="text-xl text-white mb-4 font-semibold brand-font">Ne Yapıyoruz?</h3>
+                    <h3 class="text-xl text-[#d4af37] mb-4 font-semibold brand-font">Ne Yapıyoruz?</h3>
                     <p class="text-sm text-gray-400 leading-relaxed">
                         Değişimi sadece izleyen değil, bizzat yöneten markalar yaratıyoruz. İşletmenizi hantal süreçlerden kurtarıp, 
                         <strong class="text-white">sistemi olan kazançlı yapılara</strong> dönüştürüyoruz. 
@@ -92,7 +93,7 @@
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-xl text-white mb-4 font-semibold brand-font">Farkımız Ne?</h3>
+                    <h3 class="text-xl text-[#d4af37] mb-4 font-semibold brand-font">Farkımız Ne?</h3>
                     <p class="text-sm text-gray-400 leading-relaxed">
                         Sıradan olana tahammülümüz yok. Çalışma disiplinimiz hız ve kesinlik üzerine kuruludur. 
                         Bizimle çalışmak; işletmeniz için <strong class="text-white">konforlu, hızlı ve tamamen sonuç odaklı</strong> bir yolculuktur. 
