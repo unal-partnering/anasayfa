@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referanslar | UNAL Partnerlik</title>
+    
+    <link rel="icon" href="logo2.png" type="image/png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
+        
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            max-width: 600px;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glass-card { 
+            background: rgba(16, 25, 45, 0.7); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        /* Kartın üzerine gelince parlasın */
+        .project-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-[#050f1e] text-gray-300 antialiased relative min-h-screen flex flex-col justify-between">
+
+    <img src="logo2.png" alt="" class="watermark">
+
+    <nav class="fixed w-full z-50 top-0 left-0 bg-[#050f1e]/90 backdrop-blur-md border-b border-white/5 transition-all duration-300 shadow-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="index.html" class="text-xl font-bold tracking-[0.2em] text-[#d4af37] brand-font hover:opacity-80 transition flex items-center gap-3">
+                <img src="logo2.png" alt="UNAL Logo" class="h-10 w-auto object-contain drop-shadow-md"> 
+                UNAL
+            </a>
+            
+            <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-gray-400 items-center">
+                <a href="index.html" class="hover:text-[#d4af37] transition">ANASAYFA</a>
+                <a href="#" class="text-[#d4af37] border-b border-[#d4af37]">REFERANSLAR</a> <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition font-bold">İLETİŞİM</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 max-w-6xl mx-auto relative z-10 w-full">
+        
+        <div class="text-center mb-16" data-aos="fade-down">
+            <h1 class="text-[#d4af37] text-4xl md:text-5xl brand-font mb-4">Projelerimiz & Referanslar</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Birlikte değer ürettiğimiz iş ortaklarımız ve hayata geçirdiğimiz projelerden seçkiler.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up">
+                <div class="h-48 bg-[#02060e] flex items-center justify-center border-b border-white/5 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050f1e] to-transparent opacity-80"></div>
+                    <i class="fa-solid fa-utensils text-5xl text-[#d4af37] opacity-80 group-hover:scale-110 transition duration-500"></i>
+                </div>
+                
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="mb-4">
+                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Web Tasarım</span>
+                    </div>
+                    <h3 class="text-2xl text-white mb-3 brand-font">Ünal Yemek</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
+                        Kurumsal yemek hizmetleri sunan Ünal Yemek için modern, mobil uyumlu ve müşteri odaklı web sitesi tasarımı ve geliştirmesi.
+                    </p>
+                    
+                    <a href="https://unal-partnering.github.io/unalyemek" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
+                        Projeyi İncele <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-8 flex flex-col items-center justify-center text-center opacity-50 border-dashed border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-file-contract text-4xl text-gray-600 mb-4"></i>
+                <h3 class="text-xl text-gray-400 mb-2 brand-font">Gizli Partnerlikler</h3>
+                <p class="text-xs text-gray-500">
+                    Danışmanlık verdiğimiz diğer firmalar ve stratejik raporlar gizlilik sözleşmeleri gereği burada listelenmemektedir.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-8 text-gray-600 text-xs border-t border-white/5 relative z-10 bg-[#050f1e]">
+        &copy; 2026 UNAL Partnering. Tüm hakları saklıdır.
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+    </script>
+</body>
+</html>
