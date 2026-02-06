@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNAL | Strateji & Partnerlik</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
         
-        /* LOGO AYARLARI & YUMUŞAK GEÇİŞ */
+        /* LOGO WATERMARK AYARI */
         .watermark {
             position: fixed;
             top: 50%;
@@ -18,60 +25,82 @@
             transform: translate(-50%, -50%);
             width: 80vw;
             max-width: 600px;
-            opacity: 0.15; 
-            z-index: -1;
+            opacity: 0.05; /* Arka plan resmi geldiği için opaklığı biraz daha düşürdüm */
+            z-index: 0;
             pointer-events: none;
-            mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
-            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
         }
 
         .gold-text { color: #d4af37; }
+        
+        /* CAM EFEKTİ (Glassmorphism) */
         .glass-card { 
             background: rgba(16, 25, 45, 0.7); 
-            backdrop-filter: blur(8px); 
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(212, 175, 55, 0.1); /* Altın rengi hafif sınır */
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Arka Plan Görseli */
+        .hero-bg {
+            background-image: linear-gradient(rgba(5, 15, 30, 0.9), rgba(5, 15, 30, 0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax efekti */
+        }
+
+        /* SSS Detaylar Animasyonu */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
         }
     </style>
 </head>
-<body class="bg-[#050f1e] text-gray-300 antialiased relative">
+<body class="bg-[#050f1e] text-gray-300 antialiased relative selection:bg-[#d4af37] selection:text-[#050f1e]">
 
     <img src="logo.png" alt="" class="watermark">
 
-    <nav class="fixed w-full z-50 top-0 left-0 bg-[#050f1e]/80 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed w-full z-50 top-0 left-0 bg-[#050f1e]/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-[0.2em] text-[#d4af37] brand-font hover:opacity-80 transition">UNAL</a>
+            <a href="#" class="text-xl font-bold tracking-[0.2em] text-[#d4af37] brand-font hover:opacity-80 transition flex items-center gap-2">
+                <i class="fa-solid fa-layer-group"></i> UNAL
+            </a>
             
             <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-gray-400 items-center">
                 <a href="#biz-kimiz" class="hover:text-[#d4af37] transition">BİZ KİMİZ?</a>
                 <a href="#hizmetler" class="hover:text-[#d4af37] transition">MODELLER</a>
-                <a href="#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition">İLETİŞİM</a>
+                <a href="#sss" class="hover:text-[#d4af37] transition">SSS</a>
+                <a href="#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition font-bold">İLETİŞİM</a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-40 pb-20 px-6 text-center max-w-4xl mx-auto relative z-10">
-        <h1 class="text-[#d4af37] text-6xl md:text-8xl brand-font mb-4">UNAL</h1>
-        <h2 class="text-[#d4af37] text-sm uppercase tracking-[0.4em] mb-8">Partnerlik & Danışmanlık</h2>
-        
-        <h3 class="text-4xl md:text-6xl text-white mb-8 leading-tight brand-font">
-            Geleceğinizi <br>
-            <span class="italic text-[#d4af37]">Şekillendirin</span>
-        </h3>
-        
-        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12">
-            İster yeni bir fikri hayata geçiren bir <strong>girişimci</strong> olun, ister mevcut işini büyütmek isteyen bir <strong>işletme</strong>... 
-            Sürecin her adımında stratejik "Yol Arkadaşınız" oluyoruz.
-        </p>
+    <main class="hero-bg min-h-screen flex items-center justify-center pt-20 px-6 text-center relative z-10">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1200">
+            <h1 class="text-[#d4af37] text-6xl md:text-8xl brand-font mb-4 drop-shadow-lg">UNAL</h1>
+            <h2 class="text-[#d4af37] text-sm uppercase tracking-[0.4em] mb-8 font-semibold">Partnerlik & Danışmanlık</h2>
+            
+            <h3 class="text-4xl md:text-6xl text-white mb-8 leading-tight brand-font">
+                Geleceğinizi <br>
+                <span class="italic text-[#d4af37]">Şekillendirin</span>
+            </h3>
+            
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12">
+                İster yeni bir fikri hayata geçiren bir <strong>girişimci</strong> olun, ister mevcut işini büyütmek isteyen bir <strong>işletme</strong>... 
+                Sürecin her adımında stratejik "Yol Arkadaşınız" oluyoruz.
+            </p>
 
-        <div class="flex justify-center gap-4">
-            <a href="#iletisim" class="bg-[#d4af37] text-[#050f1e] px-8 py-4 rounded font-bold hover:bg-[#b5952f] transition tracking-widest uppercase">
-                İlk Adımı Atın
-            </a>
+            <div class="flex justify-center gap-4">
+                <a href="#iletisim" class="bg-[#d4af37] text-[#050f1e] px-8 py-4 rounded font-bold hover:bg-[#b5952f] hover:scale-105 transition transform tracking-widest uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                    İlk Adımı Atın
+                </a>
+            </div>
         </div>
     </main>
 
-    <section id="biz-kimiz" class="max-w-4xl mx-auto px-6 py-20 relative z-10">
-        <div class="glass-card p-10 md:p-14 rounded-xl border border-[#d4af37]/20 text-center md:text-left">
+    <section id="biz-kimiz" class="max-w-4xl mx-auto px-6 py-24 relative z-10">
+        <div class="glass-card p-10 md:p-14 rounded-xl border-t border-[#d4af37]/30 text-center md:text-left shadow-2xl" data-aos="fade-right">
             <h2 class="text-3xl text-[#d4af37] mb-8 brand-font text-center">Biz Kimiz?</h2>
             
             <p class="text-gray-300 leading-relaxed text-lg mb-10 text-center max-w-3xl mx-auto">
@@ -82,20 +111,23 @@
             </p>
 
             <div class="grid md:grid-cols-2 gap-10 border-t border-white/10 pt-10">
-                <div>
-                    <h3 class="text-xl text-[#d4af37] mb-4 font-semibold brand-font">Ne Yapıyoruz?</h3>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl text-[#d4af37] mb-4 font-semibold brand-font flex items-center gap-2">
+                        <i class="fa-solid fa-chess-knight"></i> Ne Yapıyoruz?
+                    </h3>
                     <p class="text-sm text-gray-400 leading-relaxed">
                         Değişimi sadece izleyen değil, bizzat yöneten markalar yaratıyoruz. İşletmenizi hantal süreçlerden kurtarıp, 
                         <strong class="text-white">sistemi olan kazançlı yapılara</strong> dönüştürüyoruz. 
                         Bu dönüşüm sürecinde yükünüzü hafifletiyor, karmaşayı netliğe çeviriyoruz.
                     </p>
                 </div>
-                <div>
-                    <h3 class="text-xl text-[#d4af37] mb-4 font-semibold brand-font">Farkımız Ne?</h3>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl text-[#d4af37] mb-4 font-semibold brand-font flex items-center gap-2">
+                        <i class="fa-solid fa-fingerprint"></i> Farkımız Ne?
+                    </h3>
                     <p class="text-sm text-gray-400 leading-relaxed">
                         Sıradan olana tahammülümüz yok. Çalışma disiplinimiz hız ve kesinlik üzerine kuruludur. 
-                        Bizimle çalışmak; işletmeniz için <strong class="text-white">konforlu, hızlı ve tamamen sonuç odaklı</strong> bir yolculuktur. 
-                        Çünkü biz sizin için çalışan bir firma değil, sizinle birlikte kazanan bir <strong class="text-[#d4af37]">yol arkadaşıyız.</strong>
+                        Bizimle çalışmak; işletmeniz için <strong class="text-white">konforlu, hızlı ve tamamen sonuç odaklı</strong> bir yolculuktur.
                     </p>
                 </div>
             </div>
@@ -103,51 +135,92 @@
     </section>
 
     <section id="hizmetler" class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+        <h2 class="text-3xl text-[#d4af37] mb-12 brand-font text-center" data-aos="fade-up">Çalışma Modellerimiz</h2>
         <div class="grid md:grid-cols-3 gap-6">
             
-            <div class="glass-card p-10 rounded-xl hover:-translate-y-2 transition duration-500 group">
-                <h3 class="text-2xl text-white mb-4 group-hover:text-[#d4af37] transition">Sürekli Partnerlik</h3>
-                <p class="text-sm leading-relaxed mb-6">
+            <div class="glass-card p-10 rounded-xl hover:-translate-y-2 transition duration-500 group relative overflow-hidden" data-aos="flip-left">
+                <div class="absolute top-0 left-0 w-1 h-full bg-[#d4af37] opacity-0 group-hover:opacity-100 transition"></div>
+                <div class="text-4xl text-[#d4af37] mb-6 opacity-80"><i class="fa-solid fa-handshake"></i></div>
+                <h3 class="text-2xl text-white mb-4 group-hover:text-[#d4af37] transition brand-font">Sürekli Partnerlik</h3>
+                <p class="text-sm leading-relaxed mb-6 text-gray-400">
                     Aylık ve yıllık paketlerle, haftalık toplantılar eşliğinde işletmenizin "gizli ortağı" gibi çalışıyoruz. 
-                    Siz operasyonu yönetirken, biz stratejik planlamayı ve takibi yapıyoruz.
+                    Siz operasyonu yönetirken, biz stratejik planlamayı üstleniyoruz.
                 </p>
                 <ul class="text-xs space-y-2 text-gray-500">
-                    <li>• Düzenli Durum Değerlendirmesi</li>
-                    <li>• Rakip Analizi & Pazar İstihbaratı</li>
-                    <li>• Kriz Yönetimi & Stratejik Destek</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Düzenli Durum Değerlendirmesi</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Rakip Analizi & Pazar İstihbaratı</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Kriz Yönetimi & Stratejik Destek</li>
                 </ul>
             </div>
 
-            <div class="glass-card p-10 rounded-xl hover:-translate-y-2 transition duration-500 group border-[#d4af37]/30">
-                <h3 class="text-2xl text-white mb-4 group-hover:text-[#d4af37] transition">Nokta Atışı Çözüm</h3>
-                <p class="text-sm leading-relaxed mb-6">
-                    İşletmenizde aksayan spesifik bir alan mı var ya da var olanı geliştirmek mi istiyorsunuz? Karmaşadan uzak,
-                    sonuç odaklı ve uygulanabilir reçeteler sunuyoruz.
+            <div class="glass-card p-10 rounded-xl hover:-translate-y-2 transition duration-500 group border-[#d4af37]/40 relative overflow-hidden" data-aos="flip-left" data-aos-delay="100">
+                <div class="absolute top-0 right-0 bg-[#d4af37] text-[#050f1e] text-[10px] px-3 py-1 font-bold uppercase tracking-wide">Popüler</div>
+                <div class="text-4xl text-[#d4af37] mb-6 opacity-80"><i class="fa-solid fa-bullseye"></i></div>
+                <h3 class="text-2xl text-white mb-4 group-hover:text-[#d4af37] transition brand-font">Nokta Atışı Çözüm</h3>
+                <p class="text-sm leading-relaxed mb-6 text-gray-400">
+                    İşletmenizde aksayan spesifik bir alan mı var? Karmaşadan uzak, sonuç odaklı ve uygulanabilir reçeteler sunuyoruz.
                 </p>
                 <ul class="text-xs space-y-2 text-gray-500">
-                    <li>• Maliyet Kontrolü & Kârlılık</li>
-                    <li>• Süreç İyileştirme & Verimlilik</li>
-                    <li>• Satış Artırma Stratejileri</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Maliyet Kontrolü & Kârlılık</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Süreç İyileştirme & Verimlilik</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Satış Artırma Stratejileri</li>
                 </ul>
             </div>
 
-            <div class="glass-card p-10 rounded-xl hover:-translate-y-2 transition duration-500 group">
-                <h3 class="text-2xl text-white mb-4 group-hover:text-[#d4af37] transition whitespace-nowrap md:whitespace-normal">Girişim & Dijital Çözümler</h3>
-                <p class="text-sm leading-relaxed mb-6">
-                    Yeni bir fikir mi geliştiriyorsunuz yoksa işletmenizi dijitale mi taşıyorsunuz?
-                    Fikirden uygulamaya kadar tüm planlamayı üstleniyoruz.
+            <div class="glass-card p-10 rounded-xl hover:-translate-y-2 transition duration-500 group relative overflow-hidden" data-aos="flip-left" data-aos-delay="200">
+                <div class="absolute top-0 left-0 w-1 h-full bg-[#d4af37] opacity-0 group-hover:opacity-100 transition"></div>
+                <div class="text-4xl text-[#d4af37] mb-6 opacity-80"><i class="fa-solid fa-rocket"></i></div>
+                <h3 class="text-2xl text-white mb-4 group-hover:text-[#d4af37] transition brand-font">Girişim & Dijital</h3>
+                <p class="text-sm leading-relaxed mb-6 text-gray-400">
+                    Yeni bir fikir mi geliştiriyorsunuz yoksa işletmenizi dijitale mi taşıyorsunuz? Fikirden uygulamaya kadar tüm planlamayı üstleniyoruz.
                 </p>
                 <ul class="text-xs space-y-2 text-gray-500">
-                    <li>• Girişim Yol Haritası (Business Plan)</li>
-                    <li>• Dijital Kurulum & Marka Görünürlüğü</li>
-                    <li>• Sistem Kurulumu & Operasyonel Düzen</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Girişim Yol Haritası (Business Plan)</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Dijital Kurulum & Marka Görünürlüğü</li>
+                    <li><i class="fa-solid fa-check text-[#d4af37] mr-2"></i>Sistem Kurulumu & Operasyonel Düzen</li>
                 </ul>
             </div>
 
         </div>
     </section>
 
-    <section id="iletisim" class="max-w-2xl mx-auto px-6 py-24 relative z-10 text-center">
+    <section id="sss" class="max-w-3xl mx-auto px-6 py-10 relative z-10" data-aos="fade-up">
+        <h2 class="text-2xl text-[#d4af37] mb-8 brand-font text-center">Merak Edilenler</h2>
+        
+        <div class="space-y-4">
+            <details class="group glass-card rounded-lg p-4 cursor-pointer">
+                <summary class="flex justify-between items-center font-medium text-white group-hover:text-[#d4af37] transition">
+                    <span>Danışmanlık süreci nasıl başlıyor?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
+                </summary>
+                <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
+                    İlk aşamada ücretsiz bir ön görüşme (Zoom veya yüz yüze) yaparak işletmenizin ihtiyaçlarını analiz ediyoruz. Ardından size özel bir yol haritası sunuyoruz.
+                </div>
+            </details>
+
+            <details class="group glass-card rounded-lg p-4 cursor-pointer">
+                <summary class="flex justify-between items-center font-medium text-white group-hover:text-[#d4af37] transition">
+                    <span>Sadece İstanbul içi mi çalışıyorsunuz?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
+                </summary>
+                <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
+                    Hayır. İstanbul dışında ve yurt dışındaki müşterilerimizle online platformlar üzerinden "Business Partnering" modelimizi başarıyla yürütüyoruz.
+                </div>
+            </details>
+
+            <details class="group glass-card rounded-lg p-4 cursor-pointer">
+                <summary class="flex justify-between items-center font-medium text-white group-hover:text-[#d4af37] transition">
+                    <span>Ücretlendirme politikanız nedir?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
+                </summary>
+                <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
+                    Proje bazlı veya aylık danışmanlık paketlerimize göre değişmektedir. İlk görüşmede bütçenize ve hedefinize en uygun modeli birlikte belirliyoruz.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section id="iletisim" class="max-w-2xl mx-auto px-6 py-24 relative z-10 text-center" data-aos="zoom-in">
         <h2 class="text-3xl text-white mb-4 brand-font">Bize Ulaşın</h2>
         <p class="text-gray-500 mb-10">Sorununuzu anlatın, size dönüş yapalım.</p>
 
@@ -155,21 +228,41 @@
             <input type="hidden" name="_subject" value="UNAL Partnering - Yeni Müşteri Talebi!">
 
             <div class="grid md:grid-cols-2 gap-4">
-                <input type="text" name="name" placeholder="Adınız Soyadınız" class="w-full bg-transparent border border-gray-700 p-4 rounded text-white focus:border-[#d4af37] outline-none transition" required>
-                <input type="email" name="email" placeholder="E-posta Adresiniz" class="w-full bg-transparent border border-gray-700 p-4 rounded text-white focus:border-[#d4af37] outline-none transition" required>
+                <div class="relative">
+                    <i class="fa-solid fa-user absolute top-5 left-4 text-gray-500"></i>
+                    <input type="text" name="name" placeholder="Adınız Soyadınız" class="w-full bg-[#050f1e]/50 border border-gray-700 p-4 pl-12 rounded text-white focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] outline-none transition" required>
+                </div>
+                <div class="relative">
+                    <i class="fa-solid fa-envelope absolute top-5 left-4 text-gray-500"></i>
+                    <input type="email" name="email" placeholder="E-posta Adresiniz" class="w-full bg-[#050f1e]/50 border border-gray-700 p-4 pl-12 rounded text-white focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] outline-none transition" required>
+                </div>
             </div>
             
-            <textarea name="message" rows="4" placeholder="Hangi konuda desteğe ihtiyacınız var? Detayları buraya yazabilirsiniz..." class="w-full bg-transparent border border-gray-700 p-4 rounded text-white focus:border-[#d4af37] outline-none transition" required></textarea>
+            <div class="relative">
+                <i class="fa-solid fa-comment absolute top-5 left-4 text-gray-500"></i>
+                <textarea name="message" rows="4" placeholder="Hangi konuda desteğe ihtiyacınız var? Detayları buraya yazabilirsiniz..." class="w-full bg-[#050f1e]/50 border border-gray-700 p-4 pl-12 rounded text-white focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] outline-none transition" required></textarea>
+            </div>
             
-            <button type="submit" class="w-full bg-[#d4af37] text-[#050f1e] font-bold py-4 rounded hover:bg-[#b5952f] transition tracking-widest uppercase">
-                Talep Gönder
+            <button type="submit" class="w-full bg-[#d4af37] text-[#050f1e] font-bold py-4 rounded hover:bg-[#b5952f] transition tracking-widest uppercase flex justify-center items-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> Talep Gönder
             </button>
         </form>
     </section>
 
-    <footer class="text-center py-8 text-gray-600 text-xs border-t border-white/5 relative z-10">
+    <footer class="text-center py-8 text-gray-600 text-xs border-t border-white/5 relative z-10 bg-[#050f1e]">
         &copy; 2026 UNAL Partnering. Tüm hakları saklıdır.
     </footer>
 
+    <a href="https://wa.me/905515115440" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25d366] text-white p-4 rounded-full shadow-lg hover:scale-110 hover:bg-[#20bd5a] transition duration-300 flex items-center justify-center w-14 h-14" title="WhatsApp'tan Ulaşın">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Animasyon sadece bir kere çalışsın
+            offset: 100, // Tetiklenme mesafesi
+        });
+    </script>
 </body>
 </html>
