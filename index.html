@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNAL | Strateji & Partnerlik</title>
     
+    <title>UNAL | Strateji & Partnerlik</title>
+    <meta name="description" content="İşletmenizi büyütmek ve geleceği şekillendirmek için stratejik yol arkadaşınız. Yönetim danışmanlığı, süreç iyileştirme ve büyüme stratejileri.">
+    <meta name="keywords" content="danışmanlık, strateji, iş geliştirme, unal partnering, yönetim danışmanlığı, business partner">
+    <meta name="author" content="Unal Partnering">
+
+    <meta property="og:title" content="UNAL | Strateji & Partnerlik">
+    <meta property="og:description" content="Geleceğinizi Şekillendirin. İşletmeniz için sadece bir danışman değil, stratejik bir yol arkadaşıyız.">
+    <meta property="og:image" content="https://unal-partnering.github.io/anasayfa/banner.jpg"> <meta property="og:url" content="https://unal-partnering.github.io/anasayfa/">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -25,7 +36,7 @@
             transform: translate(-50%, -50%);
             width: 80vw;
             max-width: 600px;
-            opacity: 0.05; /* Arka plan resmi geldiği için opaklığı biraz daha düşürdüm */
+            opacity: 0.05;
             z-index: 0;
             pointer-events: none;
         }
@@ -36,7 +47,7 @@
         .glass-card { 
             background: rgba(16, 25, 45, 0.7); 
             backdrop-filter: blur(10px); 
-            border: 1px solid rgba(212, 175, 55, 0.1); /* Altın rengi hafif sınır */
+            border: 1px solid rgba(212, 175, 55, 0.1);
             transition: all 0.3s ease;
         }
 
@@ -45,19 +56,21 @@
             background-image: linear-gradient(rgba(5, 15, 30, 0.9), rgba(5, 15, 30, 0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax efekti */
+            background-attachment: fixed;
         }
 
         /* SSS Detaylar Animasyonu */
-        details > summary {
-            list-style: none;
-        }
-        details > summary::-webkit-details-marker {
-            display: none;
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        /* Metin Seçimi Rengi */
+        ::selection {
+            background: #d4af37;
+            color: #050f1e;
         }
     </style>
 </head>
-<body class="bg-[#050f1e] text-gray-300 antialiased relative selection:bg-[#d4af37] selection:text-[#050f1e]">
+<body class="bg-[#050f1e] text-gray-300 antialiased relative">
 
     <img src="logo.png" alt="" class="watermark">
 
@@ -194,17 +207,7 @@
                     <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
                 </summary>
                 <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
-                    İlk aşamada ücretsiz bir ön görüşme (Zoom veya yüz yüze) yaparak işletmenizin ihtiyaçlarını analiz ediyoruz. Ardından size özel bir yol haritası sunuyoruz.
-                </div>
-            </details>
-
-            <details class="group glass-card rounded-lg p-4 cursor-pointer">
-                <summary class="flex justify-between items-center font-medium text-white group-hover:text-[#d4af37] transition">
-                    <span>Sadece İstanbul içi mi çalışıyorsunuz?</span>
-                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
-                </summary>
-                <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
-                    Hayır. İstanbul dışında ve yurt dışındaki müşterilerimizle online platformlar üzerinden "Business Partnering" modelimizi başarıyla yürütüyoruz.
+                    Süreç, web sitemizdeki form veya e-posta yoluyla talebinizi iletmenizle başlar. Ardından sizinle bir ön görüşme planlar, işletmenizi ve yaşadığınız sorunu derinlemesine anlamak adına size detaylı sorular sorarız. Verdiğiniz cevaplar ve analizlerimiz doğrultusunda, size özel ve kapsamlı bir <strong>stratejik yol haritası (rapor)</strong> sunarız.
                 </div>
             </details>
 
@@ -214,7 +217,28 @@
                     <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
                 </summary>
                 <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
-                    Proje bazlı veya aylık danışmanlık paketlerimize göre değişmektedir. İlk görüşmede bütçenize ve hedefinize en uygun modeli birlikte belirliyoruz.
+                    Proje bazlı çalışmalarımızın yanı sıra, ihtiyacınıza uygun <strong>Aylık veya Yıllık danışmanlık paketlerimiz</strong> mevcuttur. Bütçenize ve işletmenizin döngüsüne en uygun modeli birlikte belirleriz. <br><br>
+                    <em class="text-[#d4af37]">Not: Tanışma toplantısı ve işletmeniz için hazırladığımız ilk yol haritası çalışması tamamen ücretsizdir.</em>
+                </div>
+            </details>
+
+            <details class="group glass-card rounded-lg p-4 cursor-pointer">
+                <summary class="flex justify-between items-center font-medium text-white group-hover:text-[#d4af37] transition">
+                    <span>Sadece rapor verip gidiyor musunuz?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
+                </summary>
+                <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
+                    Asla. Bizim farkımız "Partnerlik" yaklaşımımızdır. Çözümü sadece kağıt üzerinde sunmaz, uygulama aşamasında da ekibinizle birlikte çalışır, sonuç alana kadar süreci takip ederiz.
+                </div>
+            </details>
+
+             <details class="group glass-card rounded-lg p-4 cursor-pointer">
+                <summary class="flex justify-between items-center font-medium text-white group-hover:text-[#d4af37] transition">
+                    <span>Hangi sektörlerle çalışıyorsunuz?</span>
+                    <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-[#d4af37]"></i></span>
+                </summary>
+                <div class="text-gray-400 text-sm mt-4 leading-relaxed pl-2 border-l-2 border-[#d4af37]/30">
+                    Yönetim ve strateji prensipleri evrenseldir. Hizmet sektöründen üretime, perakendeden teknoloji girişimlerine kadar geniş bir yelpazede, her sektörün dinamiklerine uygun butik çözümler üretiyoruz.
                 </div>
             </details>
         </div>
