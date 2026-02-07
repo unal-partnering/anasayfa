@@ -51,16 +51,28 @@
     <img src="logo2.png" alt="" class="watermark">
 
     <nav class="fixed w-full z-50 top-0 left-0 bg-[#050f1e]/90 backdrop-blur-md border-b border-white/5 transition-all duration-300 shadow-lg">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative">
             
             <a href="index.html" class="text-xl font-bold tracking-[0.2em] text-[#d4af37] brand-font hover:opacity-80 transition flex items-center gap-3">
                 <img src="logo2.png" alt="UNAL Logo" class="h-10 w-auto object-contain drop-shadow-md"> 
                 UNAL
             </a>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-[#d4af37] focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
             
             <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-gray-400 items-center">
                 <a href="index.html" class="hover:text-[#d4af37] transition">ANASAYFA</a>
                 <a href="#" class="text-[#d4af37] border-b border-[#d4af37]">REFERANSLAR</a> <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition font-bold">İLETİŞİM</a>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#050f1e]/95 backdrop-blur-md border-b border-white/5 py-4 shadow-lg z-40">
+            <div class="flex flex-col space-y-4 text-center text-xs uppercase tracking-widest text-gray-400">
+                <a href="index.html" class="hover:text-[#d4af37] transition block py-2">ANASAYFA</a>
+                <a href="#" class="text-[#d4af37] font-bold block py-2">REFERANSLAR</a>
+                <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition font-bold mx-auto inline-block">İLETİŞİM</a>
             </div>
         </div>
     </nav>
@@ -70,57 +82,78 @@
         <div class="text-center mb-16" data-aos="fade-down">
             <h1 class="text-[#d4af37] text-4xl md:text-5xl brand-font mb-4">Projelerimiz & Referanslar</h1>
             <p class="text-gray-400 max-w-2xl mx-auto">
-                Birlikte değer ürettiğimiz iş ortaklarımız ve hayata geçirdiğimiz projelerden seçkiler.
+                Birlikte değer ürettiğimiz iş ortaklarımız ve hayata geçirdiğimiz dijital projelerden seçkiler.
             </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up">
-                <div class="h-48 bg-[#02060e] flex items-center justify-center border-b border-white/5 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#050f1e] to-transparent opacity-80"></div>
-                    <i class="fa-solid fa-utensils text-5xl text-[#d4af37] opacity-80 group-hover:scale-110 transition duration-500"></i>
+                <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
+                    <img src="ref-yemek.jpg" alt="Ünal Yemek Websitesi" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/50 to-transparent"></div>
                 </div>
                 
                 <div class="p-8 flex-1 flex flex-col">
                     <div class="mb-4">
-                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Web Tasarım</span>
+                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Kurumsal Websitesi</span>
                     </div>
                     <h3 class="text-2xl text-white mb-3 brand-font">Ünal Yemek</h3>
                     <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
-                        Kurumsal yemek hizmetleri sunan Ünal Yemek için modern, mobil uyumlu ve müşteri odaklı web sitesi tasarımı.
+                        Kurumsal yemek hizmetleri sunan firma için modern, mobil uyumlu ve menü odaklı web sitesi tasarımı.
                     </p>
                     
                     <a href="https://unal-partnering.github.io/unalyemek" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
-                        Projeyi İncele <i class="fa-solid fa-arrow-right"></i>
+                        Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </div>
 
             <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                <div class="h-48 bg-[#02060e] flex items-center justify-center border-b border-white/5 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#050f1e] to-transparent opacity-80"></div>
-                    <i class="fa-solid fa-paw text-5xl text-[#d4af37] opacity-80 group-hover:scale-110 transition duration-500"></i>
+                 <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
+                    <img src="ref-petshop.jpg" alt="Dokuma Petshop Websitesi" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/50 to-transparent"></div>
                 </div>
                 
                 <div class="p-8 flex-1 flex flex-col">
                     <div class="mb-4">
-                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Web Tasarım</span>
+                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">E-Ticaret & Katalog</span>
                     </div>
                     <h3 class="text-2xl text-white mb-3 brand-font">Dokuma Petshop</h3>
                     <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
-                        Evcil hayvan dostlarımız için geniş ürün yelpazesi sunan Dokuma Petshop için modern ve kullanıcı dostu web sitesi geliştirilmesi.
+                        Evcil hayvan ürünleri için geniş ürün yelpazesini tanıtan, kullanıcı dostu web arayüzü.
                     </p>
                     
                     <a href="https://unal-partnering.github.io/dokumapetshop" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
-                        Projeyi İncele <i class="fa-solid fa-arrow-right"></i>
+                        Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="glass-card rounded-xl p-8 flex flex-col items-center justify-center text-center opacity-50 border-dashed border-gray-700" data-aos="fade-up" data-aos-delay="200">
-                <i class="fa-solid fa-file-contract text-4xl text-gray-600 mb-4"></i>
-                <h3 class="text-xl text-gray-400 mb-2 brand-font">Gizli Partnerlikler</h3>
+             <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                 <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
+                    <img src="ref-musavir.jpg" alt="Türbedar Mali Müşavirlik Websitesi" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/50 to-transparent"></div>
+                </div>
+                
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="mb-4">
+                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Profesyonel Hizmet Sitesi</span>
+                    </div>
+                    <h3 class="text-2xl text-white mb-3 brand-font">Türbedar Müşavirlik</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
+                        Mali müşavirlik ofisi için güven veren, kurumsal ve hizmetleri net bir şekilde anlatan profesyonel web sitesi.
+                    </p>
+                    
+                    <a href="https://unal-partnering.github.io/turbedarmalimusavir" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
+                        Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-8 flex flex-col items-center justify-center text-center opacity-40 border-dashed border-gray-700" data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-file-shield text-4xl text-gray-600 mb-4"></i>
+                <h3 class="text-xl text-gray-400 mb-2 brand-font">Diğer Partnerlikler</h3>
                 <p class="text-xs text-gray-500 max-w-xs mx-auto">
                     Danışmanlık verdiğimiz diğer firmalar ve stratejik raporlar gizlilik sözleşmeleri gereği burada listelenmemektedir.
                 </p>
@@ -136,6 +169,21 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true });
+
+        // MOBİL MENÜ JS
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Menü linklerine tıklandığında menüyü kapat
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
     </script>
 </body>
 </html>
