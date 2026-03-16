@@ -17,7 +17,7 @@
         .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80vw; max-width: 600px; opacity: 0.03; z-index: 0; pointer-events: none; }
         .glass-card { background: rgba(16, 25, 45, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.1); transition: all 0.3s ease; }
         .project-card:hover { border-color: #d4af37; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .nda-overlay { position: absolute; inset: 0; background: rgba(5, 15, 30, 0.9); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+        .nda-overlay { position: absolute; inset: 0; background: rgba(5, 15, 30, 0.9); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
         .project-card:hover .nda-overlay { opacity: 1; }
         
         /* Screenshot Çerçevesi */
@@ -34,12 +34,27 @@
             <a href="index.html" class="text-xl font-bold tracking-[0.2em] text-[#d4af37] brand-font flex items-center gap-3">
                 <img src="logo2.png" alt="UNAL Logo" class="h-10 w-auto"> UNAL
             </a>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-[#d4af37] focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+
             <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-gray-400 items-center">
-                <a href="index.html" class="hover:text-[#d4af37]">ANASAYFA</a>
-                <a href="#ai-vitrin" class="hover:text-[#d4af37]">AI VİTRİN</a>
-                <a href="#danismanlik" class="hover:text-[#d4af37]">DANIŞMANLIK</a>
-                <a href="#websiteleri" class="hover:text-[#d4af37]">WEBSİTELERİ</a>
-                <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] font-bold">İLETİŞİM</a>
+                <a href="index.html" class="hover:text-[#d4af37] transition">ANASAYFA</a>
+                <a href="#ai-vitrin" class="hover:text-[#d4af37] transition">AI VİTRİN</a>
+                <a href="#danismanlik" class="hover:text-[#d4af37] transition">DANIŞMANLIK</a>
+                <a href="#websiteleri" class="hover:text-[#d4af37] transition">WEBSİTELERİ</a>
+                <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] font-bold transition">İLETİŞİM</a>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#050f1e]/95 backdrop-blur-md border-b border-white/5 py-4 shadow-lg z-40">
+            <div class="flex flex-col space-y-4 text-center text-xs uppercase tracking-widest text-gray-400">
+                <a href="index.html" class="hover:text-[#d4af37] transition block py-2">ANASAYFA</a>
+                <a href="#ai-vitrin" class="hover:text-[#d4af37] transition block py-2">AI VİTRİN</a>
+                <a href="#danismanlik" class="hover:text-[#d4af37] transition block py-2">DANIŞMANLIK</a>
+                <a href="#websiteleri" class="hover:text-[#d4af37] transition block py-2">WEBSİTELERİ</a>
+                <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition font-bold mx-auto inline-block">İLETİŞİM</a>
             </div>
         </div>
     </nav>
@@ -49,7 +64,7 @@
         <div class="text-center mb-20" data-aos="fade-down">
             <h1 class="text-[#d4af37] text-4xl md:text-6xl brand-font mb-4 italic">Vaka Analizleri & Projeler</h1>
             <p class="text-gray-400 max-w-2xl mx-auto">
-                Bilimsel yöntemler, ileri teknoloji ve stratejik partnerliklerle hayata geçirdiğimiz çözümler.
+                İşletmelere sağladığımız somut faydalar, web sistemleri ve yapay zeka çözümlerimiz.
             </p>
         </div>
 
@@ -59,35 +74,53 @@
                 <div class="h-[1px] flex-1 bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card rounded-xl p-8 project-card" data-aos="fade-up">
-                    <div class="text-[#d4af37] mb-6 text-3xl"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3 class="text-xl text-white mb-3 brand-font">NLP Analiz & İçerik Motoru</h3>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                        Görsel verileri anlamlandıran ve doğal dil işleme (NLP) algoritmalarıyla kişiselleştirilmiş yorumlar üreten yapay zeka modeli.
-                    </p>
-                    <span class="text-[10px] text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">AKTİF PROJE</span>
-                </div>
-                <div class="glass-card rounded-xl p-8 project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-[#d4af37] mb-6 text-3xl"><i class="fa-solid fa-brain"></i></div>
-                    <h3 class="text-xl text-white mb-3 brand-font">Semantik Tahmin Algoritması</h3>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                        Büyük veri setleri üzerinden olasılık hesabı yapan ve kullanıcı deneyimine özel semantik çıktılar sunan akıllı algoritma yapısı.
-                    </p>
-                    <span class="text-[10px] text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">AKTİF PROJE</span>
-                </div>
-                <div class="glass-card rounded-xl p-8 project-card relative overflow-hidden" data-aos="fade-up" data-aos-delay="200" onclick="showNDA()">
-                    <div class="text-[#d4af37] mb-6 text-3xl"><i class="fa-solid fa-comment-dots"></i></div>
-                    <h3 class="text-xl text-white mb-3 brand-font">Kurumsal Chatbot Otomasyonu</h3>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                        Müşteri destek süreçlerini %70 oranında otomatize eden, kurumsal verilerle eğitilmiş özel LLM entegrasyonu.
-                    </p>
-                    <div class="nda-overlay">
-                        <div class="text-center p-4">
-                            <i class="fa-solid fa-lock text-[#d4af37] text-2xl mb-2"></i>
-                            <p class="text-[10px] text-white font-bold uppercase tracking-widest">Gizlilik Sözleşmesi (NDA)</p>
+                
+                <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col" data-aos="fade-up">
+                    <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                    <img src="https://s0.wp.com/mshots/v1/https://kahvefali.vercel.app/?w=600" class="h-40 w-full object-cover border-b border-white/5" loading="lazy">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl text-white mb-2 brand-font">Yapay Zeka Kahve Falı</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                                Kullanıcıların fincan fotoğraflarını analiz ederek kişiselleştirilmiş fal yorumları üreten web tabanlı AI uygulaması.
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">AÇIK PROJE</span>
+                            <a href="https://kahvefali.vercel.app/" target="_blank" class="text-[#d4af37] text-[10px] uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                 </div>
+
+                <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                    <img src="https://s0.wp.com/mshots/v1/https://tarot-fali.vercel.app/?w=600" class="h-40 w-full object-cover border-b border-white/5" loading="lazy">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl text-white mb-2 brand-font">Dijital Tarot Asistanı</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                                Seçilen kartların kombinasyonlarını yapay zeka ile semantik olarak yorumlayan özel algoritmalı tarot web platformu.
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-[10px] text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">AÇIK PROJE</span>
+                            <a href="https://tarot-fali.vercel.app/" target="_blank" class="text-[#d4af37] text-[10px] uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-xl p-8 project-card relative overflow-hidden flex flex-col justify-center cursor-pointer" data-aos="fade-up" data-aos-delay="200" onclick="showNDA()">
+                    <div class="text-[#d4af37] mb-6 text-4xl"><i class="fa-solid fa-comment-dots"></i></div>
+                    <h3 class="text-xl text-white mb-3 brand-font">Kurumsal Chatbot</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                        Müşteri sorularını otomatik yanıtlayarak destek ekibinin mesai yükünü %70 oranında azaltan özel AI entegrasyonu.
+                    </p>
+                    <div class="nda-overlay">
+                        <i class="fa-solid fa-lock text-[#d4af37] text-3xl mb-3"></i>
+                        <p class="text-xs text-white font-bold uppercase tracking-widest">Gizlilik (NDA)</p>
+                    </div>
+                </div>
+                
             </div>
         </section>
 
@@ -96,55 +129,89 @@
                 <h2 class="text-2xl text-white brand-font"><span class="text-[#d4af37]">02.</span> Partnerlik & Danışmanlık</h2>
                 <div class="h-[1px] flex-1 bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
-                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Envanter Optimizasyonu</h3>
-                    <p class="text-[11px] text-gray-400 mb-4 italic">Yerel Perakende Sektörü</p>
-                    <p class="text-xs leading-relaxed text-gray-500">
-                        Karar Verme Modelleri ve EOQ analizi kullanılarak stok elde tutma maliyetlerinde %12 iyileştirme sağlandı.
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">%15 Maliyet Düşüşü</div>
+                    <h3 class="text-white text-sm font-bold mb-1">Gider ve Menü Planlama</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (Restoran Zinciri)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Tedarik süreçleri yeniden düzenlendi ve porsiyon hesaplamaları yapılarak aylık giderlerde net tasarruf sağlandı.
                     </p>
-                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
                 </div>
-                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
-                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Vardiya & İşgücü Planlama</h3>
-                    <p class="text-[11px] text-gray-400 mb-4 italic">Hizmet Sektörü</p>
-                    <p class="text-xs leading-relaxed text-gray-500">
-                        Doğrusal Programlama yöntemi ile personel verimliliği optimize edildi, fazla mesai yükü %18 dengelendi.
+
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">%20 Kayıt Artışı</div>
+                    <h3 class="text-white text-sm font-bold mb-1">Satış ve Görünürlük</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (Özel Eğitim)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Bölgesel reklam stratejileri ve veli iletişim süreçleri optimize edilerek yeni öğrenci kayıtları hızlandırıldı.
                     </p>
-                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
                 </div>
-                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
-                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Tedarik Zinciri Modelleme</h3>
-                    <p class="text-[11px] text-gray-400 mb-4 italic">Gıda Dağıtım</p>
-                    <p class="text-xs leading-relaxed text-gray-500">
-                        Ulaştırma Modelleri ile rota optimizasyonu yapıldı; lojistik maliyetlerinde somut tasarruf elde edildi.
+
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">%30 Kargo Tasarrufu</div>
+                    <h3 class="text-white text-sm font-bold mb-1">Operasyon ve Lojistik</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (E-Ticaret)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Kargo firmalarıyla anlaşmalar revize edildi ve paketleme süreleri kısaltılarak operasyonel maliyetler düşürüldü.
                     </p>
-                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
                 </div>
-                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
-                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Darboğaz (Bottleneck) Analizi</h3>
-                    <p class="text-[11px] text-gray-400 mb-4 italic">Butik Üretim Hattı</p>
-                    <p class="text-xs leading-relaxed text-gray-500">
-                        Kuyruk Teorisi ve CPM yöntemleri ile süreçteki tıkanıklıklar giderilerek iş akış hızı artırıldı.
+
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">%25 Randevu Artışı</div>
+                    <h3 class="text-white text-sm font-bold mb-1">Dijital Takip Sistemi</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (Güzellik Merkezi)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Müşteri hatırlatma süreçleri dijitale taşındı ve son dakika iptal olan randevuların önüne geçildi.
                     </p>
-                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
                 </div>
-                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
-                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Dijital Dönüşüm Yol Haritası</h3>
-                    <p class="text-[11px] text-gray-400 mb-4 italic">Profesyonel Hizmetler</p>
-                    <p class="text-xs leading-relaxed text-gray-500">
-                        Manuel süreçlerin %90'ı bulut tabanlı sistemlere taşınarak operasyonel raporlama hızı 2 katına çıkarıldı.
+
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">Mesai Yükü -%40</div>
+                    <h3 class="text-white text-sm font-bold mb-1">Evrak ve Süreç Otomasyonu</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (Hukuk Bürosu)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Fiziksel dosya takibi yerine dijital ve bulut tabanlı bir sisteme geçilerek ofis içi zaman kaybı engellendi.
                     </p>
-                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
                 </div>
-                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
-                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Kısıt Altında Optimizasyon</h3>
-                    <p class="text-[11px] text-gray-400 mb-4 italic">Küçük İşletme Yönetimi</p>
-                    <p class="text-xs leading-relaxed text-gray-500">
-                        Sınırlı kaynakların en yüksek karı getirecek şekilde dağıtımı için Excel Solver tabanlı modeller kurgulandı.
+
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">Tahsilat Hızı +%50</div>
+                    <h3 class="text-white text-sm font-bold mb-1">Finansal Akış Yönetimi</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (Mali Müşavirlik)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Müşteri ödeme takipleri düzene sokuldu ve geciken ödemeler için otomatik bir uyarı mekanizması kuruldu.
                     </p>
-                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
                 </div>
+
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">Sadakatte %35 Artış</div>
+                    <h3 class="text-white text-sm font-bold mb-1">CRM ve Müşteri İlişkileri</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (Oto Servis)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Eski müşterilere yönelik periyodik bakım hatırlatma sistemi devreye alınarak tekrarlı satışlar artırıldı.
+                    </p>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
+                </div>
+
+                <div class="glass-card p-6 project-card relative overflow-hidden cursor-pointer flex flex-col" onclick="showNDA()">
+                    <div class="text-2xl text-[#d4af37] font-bold mb-3 brand-font">Aylık -12.000 TL</div>
+                    <h3 class="text-white text-sm font-bold mb-1">Stok ve Fire Takibi</h3>
+                    <p class="text-[10px] text-gray-400 mb-4 uppercase tracking-wider"><i class="fa-solid fa-user-shield text-[#d4af37] mr-1"></i> Gizli Müşteri (Veteriner)</p>
+                    <p class="text-xs leading-relaxed text-gray-500 flex-1">
+                        Son kullanma tarihi yaklaşan medikal ürünlerin takibi düzene sokularak çöpe giden ürün israfı bitirildi.
+                    </p>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37] text-2xl"></i></div>
+                </div>
+
             </div>
         </section>
 
@@ -156,29 +223,29 @@
 
             <div class="mb-12">
                 <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Eğitim & Akademi</h3>
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/toprak-ozel-egitim-kurumlari?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Toprak Özel Eğitim Kurumları</h4>
-                            <a href="https://unal-partnering.github.io/toprak-ozel-egitim-kurumlari" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/toprak-ozel-egitim-kurumlari?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Toprak Özel Eğitim</h4>
+                            <a href="https://unal-partnering.github.io/toprak-ozel-egitim-kurumlari" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/irmaketutmerkezi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Irmak Etüt Merkezi</h4>
-                            <a href="https://unal-partnering.github.io/irmaketutmerkezi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/irmaketutmerkezi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Irmak Etüt Merkezi</h4>
+                            <a href="https://unal-partnering.github.io/irmaketutmerkezi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/etlikkursmerkezi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Etlik Kurs Merkezi</h4>
-                            <a href="https://unal-partnering.github.io/etlikkursmerkezi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/etlikkursmerkezi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Etlik Kurs Merkezi</h4>
+                            <a href="https://unal-partnering.github.io/etlikkursmerkezi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                 </div>
@@ -186,21 +253,21 @@
 
             <div class="mb-12">
                 <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Sanayi & Makine</h3>
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/beykaynakmakina?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Beykaynak Makina</h4>
-                            <a href="https://unal-partnering.github.io/beykaynakmakina" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/beykaynakmakina?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Beykaynak Makina</h4>
+                            <a href="https://unal-partnering.github.io/beykaynakmakina" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/taskanmakine?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Taşkan Makine</h4>
-                            <a href="https://unal-partnering.github.io/taskanmakine" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/taskanmakine?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Taşkan Makine</h4>
+                            <a href="https://unal-partnering.github.io/taskanmakine" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                 </div>
@@ -208,21 +275,21 @@
 
             <div class="mb-12">
                 <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Lezzet & Gastronomi</h3>
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/unalyemek?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Ünal Yemek</h4>
-                            <a href="https://unal-partnering.github.io/unalyemek" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/unalyemek?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Ünal Yemek</h4>
+                            <a href="https://unal-partnering.github.io/unalyemek" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/kervansofrasi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Kervan Sofrası</h4>
-                            <a href="https://unal-partnering.github.io/kervansofrasi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/kervansofrasi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Kervan Sofrası</h4>
+                            <a href="https://unal-partnering.github.io/kervansofrasi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                 </div>
@@ -230,21 +297,21 @@
 
              <div class="mb-12">
                 <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Kurumsal & Bireysel Hizmetler</h3>
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/turbedarmalimusavir?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Türbedar Mali Müşavir</h4>
-                            <a href="https://unal-partnering.github.io/turbedarmalimusavir" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/turbedarmalimusavir?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Türbedar Mali Müşavir</h4>
+                            <a href="https://unal-partnering.github.io/turbedarmalimusavir" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/unalkuafor?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Ünal Erkek Kuaförü</h4>
-                            <a href="https://unal-partnering.github.io/unalkuafor" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/unalkuafor?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Ünal Erkek Kuaförü</h4>
+                            <a href="https://unal-partnering.github.io/unalkuafor" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                 </div>
@@ -252,149 +319,149 @@
 
             <div class="mb-12">
                 <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Sağlık & Patili Dostlar</h3>
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/truvaveterinerpoliklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Truva Veteriner Polikliniği</h4>
-                            <a href="https://unal-partnering.github.io/truvaveterinerpoliklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/truvaveterinerpoliklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Truva Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/truvaveterinerpoliklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/healtoneveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Healtone Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/healtoneveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/healtoneveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Healtone Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/healtoneveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/hosdereveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Hoşdere Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/hosdereveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/hosdereveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Hoşdere Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/hosdereveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/veterinermedikalpark?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Veteriner Medikal Park</h4>
-                            <a href="https://unal-partnering.github.io/veterinermedikalpark" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/veterinermedikalpark?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Medikal Park Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/veterinermedikalpark" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/dostpativeteriner?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Dost Pati Veteriner</h4>
-                            <a href="https://unal-partnering.github.io/dostpativeteriner" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/dostpativeteriner?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Dost Pati Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/dostpativeteriner" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/novacureveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Novacure Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/novacureveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/novacureveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Novacure Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/novacureveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/oasisveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Oasis Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/oasisveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/oasisveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Oasis Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/oasisveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/animalsveterinaryclinic?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Animal's Veterinary Clinic</h4>
-                            <a href="https://unal-partnering.github.io/animalsveterinaryclinic" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/animalsveterinaryclinic?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Animal's Veterinary</h4>
+                            <a href="https://unal-partnering.github.io/animalsveterinaryclinic" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/nispetiyeveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Nispetiye Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/nispetiyeveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/nispetiyeveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Nispetiye Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/nispetiyeveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/nisantasipetmania?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Nişantaşı Petmania</h4>
-                            <a href="https://unal-partnering.github.io/nisantasipetmania" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/etilerveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Etiler Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/etilerveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/etilerveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Etiler Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/etilerveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/vetmaster?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Vetmaster Web Sitesi</h4>
+                            <a href="https://unal-partnering.github.io/vetmaster" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/vetmaster?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Vetmaster Web Sitesi</h4>
-                            <a href="https://unal-partnering.github.io/vetmaster" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/tozluveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">TOZLU Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/tozluveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/tozluveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">TOZLU Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/tozluveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/candyveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Candy Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/candyveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/candyveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Candy Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/candyveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/taurusveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Taurus Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/taurusveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/taurusveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Taurus Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/taurusveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/tesvikiyeveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Teşvikiye Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/tesvikiyeveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/tesvikiyeveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Teşvikiye Veteriner Kliniği</h4>
-                            <a href="https://unal-partnering.github.io/tesvikiyeveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/mintveterinerklinigi?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Mint Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/mintveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/mintveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Mint Veteriner Polikliniği</h4>
-                            <a href="https://unal-partnering.github.io/mintveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/dokumapetshop?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Dokuma Petshop</h4>
+                            <a href="https://unal-partnering.github.io/dokumapetshop" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                     <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
                         <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
-                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/dokumapetshop?w=600" class="h-40 w-full object-cover" loading="lazy">
-                        <div class="p-5 flex-1 flex flex-col justify-between">
-                            <h4 class="text-white text-sm font-bold">Dokuma Petshop</h4>
-                            <a href="https://unal-partnering.github.io/dokumapetshop" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/nisantasipetmania?w=600" class="h-32 w-full object-cover" loading="lazy">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-xs font-bold">Nişantaşı Petmania</h4>
+                            <a href="https://unal-partnering.github.io/nisantasipetmania" target="_blank" class="text-[#d4af37] text-[10px] mt-3 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
                         </div>
                     </div>
                 </div>
@@ -409,7 +476,7 @@
 
     <script>
         function showNDA() {
-            alert("Gizlilik Sözleşmesi (NDA) Uyarısı:\n\nBu projenin detayları, iş ortağımızın ticari sırlarını korumak amacıyla karartılmıştır. Benzer stratejik çözümler hakkında bilgi almak için bizimle iletişime geçebilirsiniz.");
+            alert("Gizlilik Sözleşmesi (NDA) Uyarısı:\n\nMüşterimizin ticari stratejilerini korumak amacıyla firma detayları gizli tutulmaktadır. Benzer bir çözüm ve verimlilik artışı için bizimle iletişime geçebilirsiniz.");
         }
     </script>
 
@@ -418,7 +485,7 @@
         AOS.init({ once: true });
         
         // Mobil Menü
-        const mobileMenuButton = document.querySelector('button');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         if(mobileMenuButton) {
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
