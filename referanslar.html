@@ -3,229 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Referanslar | UNAL Partnerlik</title>
+    <title>Referanslar & Projeler | UNAL Partnerlik</title>
     
     <link rel="icon" href="logo2.png" type="image/png">
-
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
+        .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80vw; max-width: 600px; opacity: 0.03; z-index: 0; pointer-events: none; }
+        .glass-card { background: rgba(16, 25, 45, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.1); transition: all 0.3s ease; }
+        .project-card:hover { border-color: #d4af37; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .nda-overlay { position: absolute; inset: 0; background: rgba(5, 15, 30, 0.9); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+        .project-card:hover .nda-overlay { opacity: 1; }
         
-        .watermark {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vw;
-            max-width: 600px;
-            opacity: 0.03;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .glass-card { 
-            background: rgba(16, 25, 45, 0.7); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        /* Kartın üzerine gelince parlasın */
-        .project-card:hover {
-            border-color: #d4af37;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+        /* Screenshot Çerçevesi */
+        .browser-top { background: #1a2236; height: 25px; border-radius: 8px 8px 0 0; display: flex; align-items: center; px: 10px; gap: 5px; padding-left: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .dot { width: 6px; height: 6px; border-radius: 50%; }
     </style>
 </head>
-<body class="bg-[#050f1e] text-gray-300 antialiased relative min-h-screen flex flex-col justify-between">
+<body class="bg-[#050f1e] text-gray-300 antialiased relative">
 
     <img src="logo2.png" alt="" class="watermark">
 
     <nav class="fixed w-full z-50 top-0 left-0 bg-[#050f1e]/90 backdrop-blur-md border-b border-white/5 transition-all duration-300 shadow-lg">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative">
-            
-            <a href="index.html" class="text-xl font-bold tracking-[0.2em] text-[#d4af37] brand-font hover:opacity-80 transition flex items-center gap-3">
-                <img src="logo2.png" alt="UNAL Logo" class="h-10 w-auto object-contain drop-shadow-md"> 
-                UNAL
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-[0.2em] text-[#d4af37] brand-font flex items-center gap-3">
+                <img src="logo2.png" alt="UNAL Logo" class="h-10 w-auto"> UNAL
             </a>
-
-            <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-[#d4af37] focus:outline-none">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-            
             <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-gray-400 items-center">
-                <a href="index.html" class="hover:text-[#d4af37] transition">ANASAYFA</a>
-                <a href="#" class="text-[#d4af37] border-b border-[#d4af37]">REFERANSLAR</a> <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition font-bold">İLETİŞİM</a>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#050f1e]/95 backdrop-blur-md border-b border-white/5 py-4 shadow-lg z-40">
-            <div class="flex flex-col space-y-4 text-center text-xs uppercase tracking-widest text-gray-400">
-                <a href="index.html" class="hover:text-[#d4af37] transition block py-2">ANASAYFA</a>
-                <a href="#" class="text-[#d4af37] font-bold block py-2">REFERANSLAR</a>
-                <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] transition font-bold mx-auto inline-block">İLETİŞİM</a>
+                <a href="index.html" class="hover:text-[#d4af37]">ANASAYFA</a>
+                <a href="#ai-vitrin" class="hover:text-[#d4af37]">AI VİTRİN</a>
+                <a href="#danismanlik" class="hover:text-[#d4af37]">DANIŞMANLIK</a>
+                <a href="#websiteleri" class="hover:text-[#d4af37]">WEBSİTELERİ</a>
+                <a href="index.html#iletisim" class="border border-[#d4af37] px-4 py-2 rounded text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050f1e] font-bold">İLETİŞİM</a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-32 pb-20 px-6 max-w-6xl mx-auto relative z-10 w-full">
+    <main class="pt-32 pb-20 px-6 max-w-6xl mx-auto relative z-10">
         
-        <div class="text-center mb-16" data-aos="fade-down">
-            <h1 class="text-[#d4af37] text-4xl md:text-5xl brand-font mb-4">Projelerimiz & Referanslar</h1>
+        <div class="text-center mb-20" data-aos="fade-down">
+            <h1 class="text-[#d4af37] text-4xl md:text-6xl brand-font mb-4 italic">Vaka Analizleri & Projeler</h1>
             <p class="text-gray-400 max-w-2xl mx-auto">
-                Birlikte değer ürettiğimiz iş ortaklarımız ve hayata geçirdiğimiz dijital projelerden seçkiler.
+                Bilimsel yöntemler, ileri teknoloji ve stratejik partnerliklerle hayata geçirdiğimiz çözümler.
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up">
-                <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
-                    <img src="ref-unalyemek.png" alt="Ünal Yemek Websitesi" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition duration-500"></div>
-                </div>
-                
-                <div class="p-8 flex-1 flex flex-col">
-                    <div class="mb-4">
-                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Kurumsal Websitesi</span>
-                    </div>
-                    <h3 class="text-2xl text-white mb-3 brand-font">Ünal Yemek</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
-                        Kurumsal yemek hizmetleri sunan firma için modern, mobil uyumlu ve menü odaklı web sitesi tasarımı.
+        <section id="ai-vitrin" class="mb-24">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-2xl text-white brand-font"><span class="text-[#d4af37]">01.</span> Yapay Zeka Vitrini</h2>
+                <div class="h-[1px] flex-1 bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-xl p-8 project-card" data-aos="fade-up">
+                    <div class="text-[#d4af37] mb-6 text-3xl"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 class="text-xl text-white mb-3 brand-font">NLP Analiz & İçerik Motoru</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                        Görsel verileri anlamlandıran ve doğal dil işleme (NLP) algoritmalarıyla kişiselleştirilmiş yorumlar üreten yapay zeka modeli.
                     </p>
-                    
-                    <a href="https://unal-partnering.github.io/unalyemek" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
-                        Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
+                    <span class="text-[10px] text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">AKTİF PROJE</span>
                 </div>
-            </div>
-
-            <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                 <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
-                    <img src="ref-petshop.jpg" alt="Dokuma Petshop Websitesi" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition duration-500"></div>
-                </div>
-                
-                <div class="p-8 flex-1 flex flex-col">
-                    <div class="mb-4">
-                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">E-Ticaret & Katalog</span>
-                    </div>
-                    <h3 class="text-2xl text-white mb-3 brand-font">Dokuma Petshop</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
-                        Evcil hayvan ürünleri için geniş ürün yelpazesini tanıtan, kullanıcı dostu web arayüzü.
+                <div class="glass-card rounded-xl p-8 project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#d4af37] mb-6 text-3xl"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="text-xl text-white mb-3 brand-font">Semantik Tahmin Algoritması</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                        Büyük veri setleri üzerinden olasılık hesabı yapan ve kullanıcı deneyimine özel semantik çıktılar sunan akıllı algoritma yapısı.
                     </p>
-                    
-                    <a href="https://unal-partnering.github.io/dokumapetshop" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
-                        Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
+                    <span class="text-[10px] text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">AKTİF PROJE</span>
                 </div>
-            </div>
-
-             <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                 <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
-                    <img src="ref-musavir.jpg" alt="Türbedar Mali Müşavirlik Websitesi" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition duration-500"></div>
-                </div>
-                
-                <div class="p-8 flex-1 flex flex-col">
-                    <div class="mb-4">
-                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Profesyonel Hizmet Sitesi</span>
-                    </div>
-                    <h3 class="text-2xl text-white mb-3 brand-font">Türbedar Müşavirlik</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
-                        Mali müşavirlik ofisi için güven veren, kurumsal ve hizmetleri net bir şekilde anlatan profesyonel web sitesi.
+                <div class="glass-card rounded-xl p-8 project-card relative overflow-hidden" data-aos="fade-up" data-aos-delay="200" onclick="showNDA()">
+                    <div class="text-[#d4af37] mb-6 text-3xl"><i class="fa-solid fa-comment-dots"></i></div>
+                    <h3 class="text-xl text-white mb-3 brand-font">Kurumsal Chatbot Otomasyonu</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                        Müşteri destek süreçlerini %70 oranında otomatize eden, kurumsal verilerle eğitilmiş özel LLM entegrasyonu.
                     </p>
-                    
-                    <a href="https://unal-partnering.github.io/turbedarmalimusavir" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
-                        Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
-                   <img src="ref-unalkuafor.png" alt="Ünal Kuaför Websitesi" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
-                   <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition duration-500"></div>
-               </div>
-               
-               <div class="p-8 flex-1 flex flex-col">
-                   <div class="mb-4">
-                       <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Kişisel Bakım</span>
-                   </div>
-                   <h3 class="text-2xl text-white mb-3 brand-font">Ünal Erkek Kuaförü</h3>
-                   <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
-                       Modern saç kesimi ve profesyonel bakım hizmetleri sunan erkek kuaförü için randevu ve hizmet odaklı web tasarımı.
-                   </p>
-                   
-                   <a href="https://unal-partnering.github.io/unalkuafor" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
-                       Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                   </a>
-               </div>
-           </div>
-
-           <div class="glass-card rounded-xl overflow-hidden project-card group flex flex-col" data-aos="fade-up" data-aos-delay="400">
-                <div class="h-56 bg-[#02060e] border-b border-white/5 relative overflow-hidden group">
-                    <img src="ref-kervansofrasi.png" alt="Kervan Sofrası Websitesi" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition duration-500"></div>
-                </div>
-                
-                <div class="p-8 flex-1 flex flex-col">
-                    <div class="mb-4">
-                        <span class="text-[10px] uppercase tracking-widest text-[#d4af37] border border-[#d4af37]/30 px-2 py-1 rounded">Restoran & Gıda</span>
+                    <div class="nda-overlay">
+                        <div class="text-center p-4">
+                            <i class="fa-solid fa-lock text-[#d4af37] text-2xl mb-2"></i>
+                            <p class="text-[10px] text-white font-bold uppercase tracking-widest">Gizlilik Sözleşmesi (NDA)</p>
+                        </div>
                     </div>
-                    <h3 class="text-2xl text-white mb-3 brand-font">Kervan Sofrası</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-6 flex-1">
-                        Geleneksel lezzetleri modern bir sunumla dijital dünyaya taşıyan, iştah açıcı görsellerle donatılmış web sitesi.
+                </div>
+            </div>
+        </section>
+
+        <section id="danismanlik" class="mb-24">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-2xl text-white brand-font"><span class="text-[#d4af37]">02.</span> Partnerlik & Danışmanlık</h2>
+                <div class="h-[1px] flex-1 bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
+                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Envanter Optimizasyonu</h3>
+                    <p class="text-[11px] text-gray-400 mb-4 italic">Yerel Perakende Sektörü</p>
+                    <p class="text-xs leading-relaxed text-gray-500">
+                        Karar Verme Modelleri ve EOQ analizi kullanılarak stok elde tutma maliyetlerinde %12 iyileştirme sağlandı.
                     </p>
-                    
-                    <a href="https://unal-partnering.github.io/kervansofrasi" target="_blank" class="inline-flex items-center gap-2 text-[#d4af37] hover:text-white transition text-sm font-bold uppercase tracking-wider">
-                        Siteyi Ziyaret Et <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                </div>
+                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
+                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Vardiya & İşgücü Planlama</h3>
+                    <p class="text-[11px] text-gray-400 mb-4 italic">Hizmet Sektörü</p>
+                    <p class="text-xs leading-relaxed text-gray-500">
+                        Doğrusal Programlama yöntemi ile personel verimliliği optimize edildi, fazla mesai yükü %18 dengelendi.
+                    </p>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                </div>
+                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
+                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Tedarik Zinciri Modelleme</h3>
+                    <p class="text-[11px] text-gray-400 mb-4 italic">Gıda Dağıtım</p>
+                    <p class="text-xs leading-relaxed text-gray-500">
+                        Ulaştırma Modelleri ile rota optimizasyonu yapıldı; lojistik maliyetlerinde somut tasarruf elde edildi.
+                    </p>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                </div>
+                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
+                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Darboğaz (Bottleneck) Analizi</h3>
+                    <p class="text-[11px] text-gray-400 mb-4 italic">Butik Üretim Hattı</p>
+                    <p class="text-xs leading-relaxed text-gray-500">
+                        Kuyruk Teorisi ve CPM yöntemleri ile süreçteki tıkanıklıklar giderilerek iş akış hızı artırıldı.
+                    </p>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                </div>
+                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
+                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Dijital Dönüşüm Yol Haritası</h3>
+                    <p class="text-[11px] text-gray-400 mb-4 italic">Profesyonel Hizmetler</p>
+                    <p class="text-xs leading-relaxed text-gray-500">
+                        Manuel süreçlerin %90'ı bulut tabanlı sistemlere taşınarak operasyonel raporlama hızı 2 katına çıkarıldı.
+                    </p>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                </div>
+                <div class="glass-card p-6 project-card relative overflow-hidden" onclick="showNDA()">
+                    <h3 class="text-[#d4af37] text-sm font-bold mb-2 uppercase tracking-tighter">Kısıt Altında Optimizasyon</h3>
+                    <p class="text-[11px] text-gray-400 mb-4 italic">Küçük İşletme Yönetimi</p>
+                    <p class="text-xs leading-relaxed text-gray-500">
+                        Sınırlı kaynakların en yüksek karı getirecek şekilde dağıtımı için Excel Solver tabanlı modeller kurgulandı.
+                    </p>
+                    <div class="nda-overlay"><i class="fa-solid fa-lock text-[#d4af37]"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="websiteleri">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-2xl text-white brand-font"><span class="text-[#d4af37]">03.</span> Dijital Varlıklar & Web</h2>
+                <div class="h-[1px] flex-1 bg-gradient-to-r from-[#d4af37]/50 to-transparent"></div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Eğitim & Akademi</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/toprak-ozel-egitim-kurumlari?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Toprak Özel Eğitim Kurumları</h4>
+                            <a href="https://unal-partnering.github.io/toprak-ozel-egitim-kurumlari" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/irmaketutmerkezi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Irmak Etüt Merkezi</h4>
+                            <a href="https://unal-partnering.github.io/irmaketutmerkezi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/etlikkursmerkezi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Etlik Kurs Merkezi</h4>
+                            <a href="https://unal-partnering.github.io/etlikkursmerkezi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="glass-card rounded-xl p-8 flex flex-col items-center justify-center text-center opacity-40 border-dashed border-gray-700" data-aos="fade-up" data-aos-delay="500">
-                <i class="fa-solid fa-file-shield text-4xl text-gray-600 mb-4"></i>
-                <h3 class="text-xl text-gray-400 mb-2 brand-font">Diğer Partnerlikler</h3>
-                <p class="text-xs text-gray-500 max-w-xs mx-auto">
-                    Danışmanlık verdiğimiz diğer firmalar ve stratejik raporlar gizlilik sözleşmeleri gereği burada listelenmemektedir.
-                </p>
+            <div class="mb-12">
+                <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Sanayi & Makine</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/beykaynakmakina?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Beykaynak Makina</h4>
+                            <a href="https://unal-partnering.github.io/beykaynakmakina" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/taskanmakine?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Taşkan Makine</h4>
+                            <a href="https://unal-partnering.github.io/taskanmakine" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-        </div>
+            <div class="mb-12">
+                <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Lezzet & Gastronomi</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/unalyemek?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Ünal Yemek</h4>
+                            <a href="https://unal-partnering.github.io/unalyemek" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/kervansofrasi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Kervan Sofrası</h4>
+                            <a href="https://unal-partnering.github.io/kervansofrasi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="mb-12">
+                <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Kurumsal & Bireysel Hizmetler</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/turbedarmalimusavir?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Türbedar Mali Müşavir</h4>
+                            <a href="https://unal-partnering.github.io/turbedarmalimusavir" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/unalkuafor?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Ünal Erkek Kuaförü</h4>
+                            <a href="https://unal-partnering.github.io/unalkuafor" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-[#d4af37] text-xs font-bold mb-6 tracking-[0.3em] uppercase opacity-70 border-l-2 border-[#d4af37] pl-3">Sağlık & Patili Dostlar</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/truvaveterinerpoliklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Truva Veteriner Polikliniği</h4>
+                            <a href="https://unal-partnering.github.io/truvaveterinerpoliklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/healtoneveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Healtone Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/healtoneveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/hosdereveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Hoşdere Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/hosdereveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/veterinermedikalpark?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Veteriner Medikal Park</h4>
+                            <a href="https://unal-partnering.github.io/veterinermedikalpark" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/dostpativeteriner?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Dost Pati Veteriner</h4>
+                            <a href="https://unal-partnering.github.io/dostpativeteriner" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/novacureveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Novacure Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/novacureveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/oasisveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Oasis Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/oasisveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/animalsveterinaryclinic?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Animal's Veterinary Clinic</h4>
+                            <a href="https://unal-partnering.github.io/animalsveterinaryclinic" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/nispetiyeveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Nispetiye Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/nispetiyeveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/nisantasipetmania?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Nişantaşı Petmania</h4>
+                            <a href="https://unal-partnering.github.io/nisantasipetmania" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/etilerveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Etiler Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/etilerveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/vetmaster?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Vetmaster Web Sitesi</h4>
+                            <a href="https://unal-partnering.github.io/vetmaster" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/tozluveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">TOZLU Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/tozluveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/candyveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Candy Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/candyveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/taurusveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Taurus Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/taurusveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/tesvikiyeveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Teşvikiye Veteriner Kliniği</h4>
+                            <a href="https://unal-partnering.github.io/tesvikiyeveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/mintveterinerklinigi?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Mint Veteriner Polikliniği</h4>
+                            <a href="https://unal-partnering.github.io/mintveterinerklinigi" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-xl overflow-hidden project-card flex flex-col">
+                        <div class="browser-top"><div class="dot bg-[#ff5f56]"></div><div class="dot bg-[#ffbd2e]"></div><div class="dot bg-[#27c93f]"></div></div>
+                        <img src="https://s0.wp.com/mshots/v1/https://unal-partnering.github.io/dokumapetshop?w=600" class="h-40 w-full object-cover" loading="lazy">
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <h4 class="text-white text-sm font-bold">Dokuma Petshop</h4>
+                            <a href="https://unal-partnering.github.io/dokumapetshop" target="_blank" class="text-[#d4af37] text-[10px] mt-4 uppercase font-bold tracking-widest hover:text-white transition">İncele →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </main>
 
-    <footer class="text-center py-8 text-gray-600 text-xs border-t border-white/5 relative z-10 bg-[#050f1e]">
-        &copy; 2026 UNAL Partnering. Tüm hakları saklıdır.
+    <footer class="text-center py-8 text-gray-600 text-xs border-t border-white/5 bg-[#050f1e]">
+        &copy; 2026 UNAL Partnerlik, Web & Yapay Zeka. Tüm hakları saklıdır.
     </footer>
+
+    <script>
+        function showNDA() {
+            alert("Gizlilik Sözleşmesi (NDA) Uyarısı:\n\nBu projenin detayları, iş ortağımızın ticari sırlarını korumak amacıyla karartılmıştır. Benzer stratejik çözümler hakkında bilgi almak için bizimle iletişime geçebilirsiniz.");
+        }
+    </script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true });
-
-        // MOBİL MENÜ JS
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        
+        // Mobil Menü
+        const mobileMenuButton = document.querySelector('button');
         const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Menü linklerine tıklandığında menüyü kapat
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+        if(mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
     </script>
 </body>
 </html>
